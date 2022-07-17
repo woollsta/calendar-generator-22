@@ -1,0 +1,73 @@
+.Console {
+    background-image: url('./console.svg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+}
+
+.Console > div {
+    width: 82vmin;
+    aspect-ratio: 3 / 1;
+    margin-top: 18vmin;
+}
+
+.Console pre {
+    font-family: "VT323";
+    color: #B45633;
+    text-shadow: 0px 0px 8px rgba(180, 86, 51, 0.54);
+    font-size: 0.78em;
+    margin: 0;
+}
+
+.Console .Console__input {
+    line-height: 0;
+}
+
+.Console .Console__input input {
+    font-family: "VT323";
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    color: #B45633;
+    text-shadow: 0px 0px 8px rgba(180, 86, 51, 0.54);
+    font-size: 0.78em;
+}
+
+.Console .Console__input::before {
+    content: '> ';
+    font-family: "VT323";
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    color: #B45633;
+    text-shadow: 0px 0px 8px rgba(180, 86, 51, 0.54);
+    font-size: 0.78em;
+}
+
+.Console .Console__input input:focus {
+    outline: none;
+}
+
+.Console__rebootBtn {
+    position: absolute;
+    bottom: 3vmin;
+    right: 0;
+    width: 4vmin;
+    height: 4vmin;
+    border-radius: 50%;
+    background: #333;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.5) inset;
+    border: none;
+    left: 61vmin;
+    margin: auto;
+    cursor: pointer;
+}
+
+.Console__rebootBtn:hover {
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}

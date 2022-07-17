@@ -1,0 +1,15 @@
+.CalendarDayCell {
+    padding: 0.3em;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CalendarDayCell--prev, .CalendarDayCell--next {
+    opacity: 0.2;
+}
+
+.CalendarDayCell span {
+    font-size: 1rem;
+}

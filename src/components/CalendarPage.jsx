@@ -2,7 +2,9 @@ import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { DateTime } from 'luxon'
 import { getDaysInMonthForYear, mod } from '../utils';
-
+import './CalendarPage.css';
+import CalendarDayCell from './CalendarDayCell';
+import CalendarPageHeader from './CalendarPageHeader';
 
 const CalendarPage = ({
     config,
@@ -21,26 +23,34 @@ const CalendarPage = ({
             const cells = Array(7).fill().map((cv, cellIndex) => {
                 const lookup = ((rowIndex * 7) + cellIndex) - (dayOfWeekForFirstDay - 2);
                 if (lookup < 1) {
-                    return { type: 'prev', date: daysInPrevMonth + lookup };
+                    return { id: cellIndex, type: 'prev', date: daysInPrevMonth + lookup };
                 }
                 if (lookup > daysInTheMonth) {
-                    return { type: 'next', date: lookup - daysInTheMonth };
+                    return { id: cellIndex, type: 'next', date: lookup - daysInTheMonth };
                 }
-                return { type: 'current', date: lookup };
+                return { id: cellIndex, type: 'current', date: lookup };
             });
             if (cells[0].type !== 'current' && cells[6].type !== 'current') {
-                // remove full rows of dates from other weeks
+                // remove full rows of dates from other months
                 return false;
             }
-            return cells;
+            return { id: rowIndex, cells };
         })
         return rows.filter(Boolean);
     }, [config, daysInTheMonth, daysInPrevMonth]);
 
   return (
-    <div>
-        month {month} has {daysInTheMonth} days
-        <pre>{JSON.stringify(table, null, 2)}</pre>
+    <div className='CalendarPage'>
+        <CalendarPageHeader month={month} config={config} />
+        <div className='CalendarPage__days'>
+            {table.map(({ id, cells }) => (
+                <div key={id} className='CalendarPage__row'>
+                    {cells.map((cell) => (
+                        <CalendarDayCell key={cell.id} {...cell} />
+                    ))}
+                </div>
+            ))}
+        </div>
     </div>
   )
 }

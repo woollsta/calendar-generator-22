@@ -1,0 +1,26 @@
+.Calendar {
+    aspect-ratio: 210 / 297;
+    font-family: "VT323";
+    mask-image: url(./dot-pixel-mask.png);
+    mask-size: 0.7%;
+}
+
+.Calendar header {
+    height: 15%;
+    text-align: center;
+}
+
+.Calendar header h1 {
+    margin: 0.2em 0;
+}
+
+.Calendar header h2 {
+    margin: 0.2em 0;
+}
+
+.Calendar main {
+    height: 85%;
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-template-columns: 1fr 1fr 1fr;
+}

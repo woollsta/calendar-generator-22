@@ -1,9 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './CalendarDayCell.css'
+import clsx from 'clsx'
 
-const CalendarDayCell = props => {
+const CalendarDayCell = ({ type, date }) => {
   return (
-    <div>CalendarDayCell</div>
+    <div className={clsx('CalendarDayCell', `CalendarDayCell--${type}`)}>
+      <span>{date}</span>
+    </div>
   )
 }
 

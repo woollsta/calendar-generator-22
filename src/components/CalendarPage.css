@@ -1,0 +1,14 @@
+.CalendarPage {
+    margin: 0.6em;
+    font-size: 75%;
+}
+
+.CalendarPage__days {
+
+}
+
+.CalendarPage__row {
+    display: flex;
+    flex-direction: row;
+    width: '100%'
+}
