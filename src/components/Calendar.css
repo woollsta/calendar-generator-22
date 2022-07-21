@@ -5,6 +5,12 @@
     mask-size: 0.7%;
 }
 
+@media print {
+    .Calendar {
+        aspect-ratio: initial;
+    }
+}
+
 .Calendar header {
     height: 15%;
     text-align: center;

@@ -98,6 +98,7 @@ function App() {
   const reboot = useCallback(() => {
     currentBoot.current += 1;
     const newStepIter = consoleSteps();
+    setConfig({ year: null, caption: null })
     setStepIter(() => newStepIter);
     setConsoleText('');
     setInputCallback(null);
