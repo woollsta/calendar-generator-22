@@ -1,0 +1,43 @@
+.PrintControls {
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    right: 5vw;
+    top: 50vh;
+    transform: translateY(-50%);
+    animation: printControlsAppear 9s linear;
+    animation-iteration-count: 1
+}
+
+.PrintControls__printBtn {
+    padding: 10px 20px;
+    margin: 20px;
+    font-family: "VT323";
+    font-size: 2em;
+}
+
+.PrintControls__backBtn {
+    padding: 10px 20px;
+    margin: 20px;
+    font-family: "VT323";
+    font-size: 1em;
+}
+
+
+@media print {
+    .PrintControls {
+        display: none;
+    }
+}
+
+@keyframes printControlsAppear {
+    0% {
+        opacity: 0
+    }
+    99% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}

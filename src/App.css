@@ -22,10 +22,11 @@
   bottom: 14%;
   margin: auto;
   width: calc(10vw + 600px);
-  transform: translateY(100%) skew(1deg, -1deg);
+  transform: translateY(100%);
   box-shadow: 0px 0px 140px;
-  animation: print 20s linear;
+  animation: print 9s linear;
   animation-fill-mode: forwards;
+  animation-iteration-count: 1
 }
 
 .App__printout::before {
@@ -39,6 +40,7 @@
   background-image: radial-gradient(#212121 20%, transparent 20%);
   background-repeat: repeat-y;
   background-size: 2em 2em;
+  border-right: 1px dashed rgba(0,0,0,0.2);
 }
 
 .App__printout::after {
@@ -52,6 +54,7 @@
   background-image: radial-gradient(#212121 20%, transparent 20%);
   background-repeat: repeat-y;
   background-size: 2em 2em;
+  border-left: 1px dashed rgba(0,0,0,0.2);
 }
 
 @keyframes print {

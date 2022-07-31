@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TopBar from './components/TopBar';
@@ -7,6 +7,13 @@ import { useSearchParams } from 'react-router-dom';
 import { isEqual } from 'lodash';
 import { DateTime } from 'luxon';
 import Console from './components/Console';
+import PrintControls from './components/PrintControls';
+import soundEffectMp3 from './dotmatrixsound.mp3';
+
+const getRandomBetweenRange = (min, max) => {
+  const random = (max - min) * Math.random();
+  return min + random;
+};
 
 const consoleSteps = function* consoleSteps() {
   const prompts = [
@@ -23,7 +30,7 @@ const consoleSteps = function* consoleSteps() {
     [1000, '\n\n'],
     [1000, '# '],
     [1000, ''],
-    ...('./calendargen').split('').map((char) => [75, char]),
+    ...('./calendargen').split('').map((char) => [getRandomBetweenRange(75, 200), char]),
     [0, '\n'],
     [1000, '> Enter a year:\n'],
     [0, async (promptInput, setConfig) => {
@@ -127,6 +134,18 @@ function App() {
 
   const isValidConfig = config.year && config.caption;
 
+  const soundEffect = useMemo(() => new Audio(soundEffectMp3), []);
+
+  useEffect(() => {
+    if (isValidConfig) {
+      soundEffect.play();
+    }
+    return () => {
+      soundEffect.pause();
+      soundEffect.currentTime = 0;
+    };
+  }, [isValidConfig, soundEffect]);
+
   return (
     <div className="App">
       <div className="App__console">
@@ -139,9 +158,12 @@ function App() {
         />
       </div>
       {isValidConfig && (
-        <div className='App__printout'>
-          <Calendar config={config} />
-        </div>
+        <>
+          <div className='App__printout'>
+            <Calendar config={config} />
+          </div>
+          <PrintControls onReboot={reboot} />
+        </>
        )}
     </div>
   );
