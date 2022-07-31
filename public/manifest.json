@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "calendargen",
+  "name": "calendargen",
   "icons": [
     {
       "src": "favicon.ico",

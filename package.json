@@ -2,12 +2,15 @@
   "name": "calendar-generator-22",
   "version": "0.1.0",
   "private": true,
+  "main": "public/electron.js",
   "dependencies": {
     "@fontsource/vt323": "^4.5.9",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "clsx": "^1.2.1",
+    "electron": "^19.0.10",
+    "electron-is-dev": "^2.0.0",
     "lodash": "^4.17.21",
     "luxon": "^3.0.1",
     "react": "^18.2.0",
@@ -20,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "concurrently -k \"BROWSER=none npm start\" \"npm:electron\"",
+    "electron": "wait-on tcp:3000 && electron ."
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0",
+    "wait-on": "^6.0.1"
   }
 }

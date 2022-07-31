@@ -104,15 +104,19 @@
 @media print {
   body {
     print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
   @page {
     margin-top: 0;
     margin-bottom: 0;
     size: A4 portrait;
     print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
   .App {
     overflow: visible;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
   .App__console {
     display: none

@@ -7,7 +7,7 @@ const PrintControls = ({
 }) => {
   return (
     <div className='PrintControls'>
-        <button className='PrintControls__printBtn' onClick={() => window.print()}>
+        <button className='PrintControls__printBtn' onClick={window.printFancy}>
             🖨️ Print
         </button>
         <button className='PrintControls__backBtn' onClick={onReboot}>
