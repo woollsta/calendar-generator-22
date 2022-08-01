@@ -1,5 +1,6 @@
 {
   "name": "calendar-generator-22",
+  "description": "80's terminal simulation for a calendar generation program",
   "version": "0.1.0",
   "private": true,
   "main": "public/electron.js",
@@ -60,7 +61,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "name": "calendargen"
+        "name": "calendar-generator-22"
       },
       "makers": [
         {
